@@ -1,0 +1,13 @@
+com\example\constant\ReminderConstant.class
+com\example\context\BaseContext.class
+com\example\constant\AutoFillConstant.class
+com\example\constant\StatusConstant.class
+com\example\utils\HttpClientUtils.class
+com\example\constant\ShopConstant.class
+com\example\json\JacksonObjectMapper.class
+com\example\constant\UserConstant.class
+com\example\constant\JwtClaimsConstant.class
+com\example\enumeration\OperationType.class
+com\example\constant\MessageConstant.class
+com\example\exception\BaseException.class
+com\example\utils\JwtUtils.class

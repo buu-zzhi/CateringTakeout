@@ -1,0 +1,52 @@
+spring:
+  config:
+    import: optional:classpath:application-secret.yml
+  application:
+    name: Server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sky_take_out
+    username: root
+    password: mysql
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 1
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+sky:
+  jwt:
+    # jwt签名加密密钥
+    admin-secret-key: mySuperSecretKeyForJWTThatIsAtLeast32BytesLong
+    # jwt过期时间
+    admin-ttl: 43200000
+    # 前端传递令牌名称
+    admin-token-name: token
+    admin-data-name: data
+    user-secret-key: mySuperSecretKeyForJWTThatIsAtLeast32BytesLong
+    user-ttl: 43200000
+    user-token-name: authentication
+  wechat:
+    appid: wx8296d938d92492bc
+    secret: 00061a9954a61fd797d73a131c99787c
+
+
+
+
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    accessKeyId: ${my-secret.alioss.key-id}
+    accessKeySecret: ${my-secret.alioss.key-secret}
+    bucketName: lqy-tlias
+    region: cn-beijing

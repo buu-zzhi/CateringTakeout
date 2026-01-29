@@ -1,0 +1,16 @@
+package com.example.DTO;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class EmployeeEditPWDTO {
+    private Long empId;
+    private String newPassword;
+    private String oldPassword;
+}
