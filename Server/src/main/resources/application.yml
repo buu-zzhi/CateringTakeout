@@ -18,6 +18,23 @@ spring:
       port: 6379
       database: 1
 
+rocketmq:
+  name-server: ${ROCKETMQ_NAMESERVER:127.0.0.1:9876}
+  producer:
+    group: order-create-producer-group
+
+app:
+  mq:
+    order-create-topic: order-create-topic
+    order-create-consumer-group: order-create-consumer-group
+    # 业务消费失败后的最大重试次数（达到后会投递到死信主题）
+    order-create-max-reconsume-times: 5
+    # RocketMQ 延迟等级（16=30m，可按需调整）
+    order-create-retry-delay-level: 3
+    # 应用级死信主题（用于持久记录最终失败消息）
+    order-create-dead-letter-topic: order-create-dead-letter-topic
+    order-create-dead-letter-consumer-group: order-create-dead-letter-consumer-group
+
 
 mybatis:
   configuration:

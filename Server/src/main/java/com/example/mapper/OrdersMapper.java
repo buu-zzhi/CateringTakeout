@@ -31,6 +31,9 @@ public interface OrdersMapper {
     @Select("select * from orders where user_id=#{userId} and number=#{number}")
     Orders getByNumberAndUserId(Long userId, String number);
 
+    @Select("select * from orders where number=#{number} limit 1")
+    Orders getByNumber(String number);
+
     @Select("select count(id) from orders where status=#{status}")
     Integer countStatus(Integer status);
 

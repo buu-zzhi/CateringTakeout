@@ -17,4 +17,19 @@ public class OrdersSubmitVO {
     private BigDecimal orderAmount;
     private String orderNumber;
     private LocalDateTime orderTime;
+
+    /**
+     * 是否已进入异步处理队列
+     */
+    private Boolean accepted;
+
+    /**
+     * 下单处理状态：QUEUED/SUCCESS/FAILED
+     */
+    private String submitStatus;
+
+    /**
+     * 状态描述信息
+     */
+    private String message;
 }

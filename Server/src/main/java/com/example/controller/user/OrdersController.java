@@ -39,7 +39,13 @@ public class OrdersController {
 
     @PostMapping("/submit")
     public Result<OrdersSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
-        OrdersSubmitVO ordersSubmitVO = ordersService.submitOrder(ordersSubmitDTO);
+        OrdersSubmitVO ordersSubmitVO = ordersService.submitOrderAsync(ordersSubmitDTO);
+        return Result.success(ordersSubmitVO);
+    }
+
+    @GetMapping("/submitResult/{orderNumber}")
+    public Result<OrdersSubmitVO> querySubmitResult(@PathVariable String orderNumber) {
+        OrdersSubmitVO ordersSubmitVO = ordersService.querySubmitResult(orderNumber);
         return Result.success(ordersSubmitVO);
     }
 

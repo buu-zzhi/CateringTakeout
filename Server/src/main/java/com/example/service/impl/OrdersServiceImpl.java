@@ -17,6 +17,8 @@ import com.example.exception.BaseException;
 import com.example.mapper.OrderDetailMapper;
 import com.example.mapper.OrdersMapper;
 import com.example.mapper.ShoppingCartMapper;
+import com.example.mq.message.OrderCreateMessage;
+import com.example.mq.producer.OrderCreateProducer;
 import com.example.result.PageResult;
 import com.example.service.AddressBookService;
 import com.example.service.OrdersService;
@@ -48,6 +50,8 @@ public class OrdersServiceImpl implements OrdersService {
     private ShoppingCartMapper shoppingCartMapper;
     @Autowired
     private AddressBookService addressBookService;
+    @Autowired
+    private OrderCreateProducer orderCreateProducer;
     @Autowired
     private WebSocketServer webSocketServer;
 
@@ -84,37 +88,112 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
 
+    @Override
+    public OrdersSubmitVO submitOrderAsync(OrdersSubmitDTO ordersSubmitDTO) {
+        Long userId = BaseContext.getCurrentId();
+        List<ShoppingCart> shoppingCartList = validateAndGetShoppingCart(userId, ordersSubmitDTO.getAddressBookId());
+
+        String orderNumber = generateOrderNumber();
+        OrderCreateMessage message = OrderCreateMessage.builder()
+                .userId(userId)
+                .orderNumber(orderNumber)
+                .ordersSubmitDTO(ordersSubmitDTO)
+                .shoppingCarts(shoppingCartList)
+                .build();
+
+        orderCreateProducer.sendOrderCreateMessage(message);
+
+        return OrdersSubmitVO.builder()
+                .orderNumber(orderNumber)
+                .orderAmount(ordersSubmitDTO.getAmount())
+                .orderTime(LocalDateTime.now())
+                .accepted(Boolean.TRUE)
+                .submitStatus("QUEUED")
+                .message("下单请求已受理，正在排队处理")
+                .build();
+    }
+
     @Transactional
     @Override
     public OrdersSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
-        // 业务异常
+        Long userId = BaseContext.getCurrentId();
+        List<ShoppingCart> shoppingCartList = validateAndGetShoppingCart(userId, ordersSubmitDTO.getAddressBookId());
+        String orderNumber = generateOrderNumber();
+
+        createOrderFromMessage(ordersSubmitDTO, userId, orderNumber, shoppingCartList);
+        Orders orders = ordersMapper.getByNumber(orderNumber);
+
+        return OrdersSubmitVO.builder()
+                .id(orders.getId())
+                .orderTime(orders.getOrderTime())
+                .orderNumber(orders.getNumber())
+                .orderAmount(orders.getAmount())
+                .accepted(Boolean.TRUE)
+                .submitStatus("SUCCESS")
+                .message("下单成功")
+                .build();
+    }
+
+    @Override
+    public OrdersSubmitVO querySubmitResult(String orderNumber) {
+        Orders orders = ordersMapper.getByNumber(orderNumber);
+        if (orders == null) {
+            return OrdersSubmitVO.builder()
+                    .orderNumber(orderNumber)
+                    .accepted(Boolean.TRUE)
+                    .submitStatus("QUEUED")
+                    .message("订单仍在处理中")
+                    .build();
+        }
+
+        return OrdersSubmitVO.builder()
+                .id(orders.getId())
+                .orderTime(orders.getOrderTime())
+                .orderNumber(orders.getNumber())
+                .orderAmount(orders.getAmount())
+                .accepted(Boolean.TRUE)
+                .submitStatus("SUCCESS")
+                .message("订单处理完成")
+                .build();
+    }
+
+    @Transactional
+    @Override
+    public void createOrderFromMessage(OrdersSubmitDTO ordersSubmitDTO, Long userId, String orderNumber, List<ShoppingCart> shoppingCarts) {
+        Orders existedOrder = ordersMapper.getByNumber(orderNumber);
+        if (existedOrder != null) {
+            log.info("订单已存在，忽略重复消息，orderNumber={}", orderNumber);
+            return;
+        }
+
         AddressBook addressBook = addressBookService.getById(ordersSubmitDTO.getAddressBookId());
         if (addressBook == null) {
             throw new BaseException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
-        Long userId = BaseContext.getCurrentId();
-        ShoppingCart shoppingCart = ShoppingCart.builder()
-                .userId(userId).build();
-        List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
-        if (list == null || list.isEmpty()) {
+
+        if (shoppingCarts == null || shoppingCarts.isEmpty()) {
             throw new BaseException(MessageConstant.SHOPPING_CART_IS_NULL);
         }
+
+        LocalDateTime now = LocalDateTime.now();
+
         // 向订单插入数据
         Orders orders = new Orders();
         BeanUtils.copyProperties(ordersSubmitDTO, orders);
         orders.setUserId(userId);
-        orders.setOrderTime(LocalDateTime.now());
+        orders.setOrderTime(now);
         orders.setPayStatus(Orders.UN_PAID);
         orders.setStatus(Orders.PENDING_PAYMENT);
-        orders.setNumber(String.valueOf(System.currentTimeMillis()));
+        orders.setNumber(orderNumber);
         orders.setPhone(addressBook.getPhone());
         orders.setConsignee(addressBook.getConsignee());
+        orders.setAddress(formatAddress(addressBook));
         ordersMapper.insert(orders);
 
         //向订单明细插入多条数据
         List<OrderDetail> orderDetailList = new ArrayList<>();
         Long orderId = orders.getId();
-        for (ShoppingCart cart : list) {
+        for (ShoppingCart cart : shoppingCarts) {
             OrderDetail orderDetail = new OrderDetail();
             BeanUtils.copyProperties(cart, orderDetail);
             orderDetail.setOrderId(orderId);
@@ -123,14 +202,32 @@ public class OrdersServiceImpl implements OrdersService {
         orderDetailMapper.insertBatch(orderDetailList);
         // 清空购物车
         shoppingCartMapper.deleteByUserId(userId);
+    }
 
-        OrdersSubmitVO ordersSubmitVO = OrdersSubmitVO.builder()
-                .id(orderId)
-                .orderTime(orders.getOrderTime())
-                .orderNumber(orders.getNumber())
-                .orderAmount(orders.getAmount())
-                .build();
-        return ordersSubmitVO;
+    private List<ShoppingCart> validateAndGetShoppingCart(Long userId, Long addressBookId) {
+        AddressBook addressBook = addressBookService.getById(addressBookId);
+        if (addressBook == null) {
+            throw new BaseException(MessageConstant.ADDRESS_BOOK_IS_NULL);
+        }
+
+        ShoppingCart shoppingCart = ShoppingCart.builder().userId(userId).build();
+        List<ShoppingCart> shoppingCartList = shoppingCartMapper.list(shoppingCart);
+        if (shoppingCartList == null || shoppingCartList.isEmpty()) {
+            throw new BaseException(MessageConstant.SHOPPING_CART_IS_NULL);
+        }
+        return shoppingCartList;
+    }
+
+    private String generateOrderNumber() {
+        return System.currentTimeMillis() + RandomStringUtils.randomNumeric(4);
+    }
+
+    private String formatAddress(AddressBook addressBook) {
+        String province = addressBook.getProvinceName() == null ? "" : addressBook.getProvinceName();
+        String city = addressBook.getCityName() == null ? "" : addressBook.getCityName();
+        String district = addressBook.getDistrictName() == null ? "" : addressBook.getDistrictName();
+        String detail = addressBook.getDetail() == null ? "" : addressBook.getDetail();
+        return province + city + district + detail;
     }
 
     @Override
