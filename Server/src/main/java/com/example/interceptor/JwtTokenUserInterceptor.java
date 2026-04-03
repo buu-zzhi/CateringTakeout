@@ -45,6 +45,8 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        BaseContext.removeCurrentId();
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
+
 }

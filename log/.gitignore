@@ -1,0 +1,4 @@
+**/*.log
+!.gitignore
+!info/.gitkeep
+!error/.gitkeep

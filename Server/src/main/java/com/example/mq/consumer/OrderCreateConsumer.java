@@ -8,6 +8,7 @@ import org.apache.rocketmq.spring.annotation.ConsumeMode;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.core.RocketMQListener;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.support.MessageBuilder;
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
         consumerGroup = "${app.mq.order-create-consumer-group}",
         consumeMode = ConsumeMode.CONCURRENTLY
 )
+@ConditionalOnProperty(name = "app.mq.enabled", havingValue = "true")
 public class OrderCreateConsumer implements RocketMQListener<OrderCreateMessage> {
 
     @Autowired

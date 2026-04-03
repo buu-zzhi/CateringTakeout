@@ -5,7 +5,6 @@ import com.example.DTO.DishPageQueryDTO;
 import com.example.VO.DishVO;
 import com.example.constant.MessageConstant;
 import com.example.constant.StatusConstant;
-import com.example.context.BaseContext;
 import com.example.entity.Dish;
 import com.example.entity.DishFlavors;
 import com.example.exception.BaseException;
@@ -14,6 +13,7 @@ import com.example.mapper.DishMapper;
 import com.example.mapper.SetmealDishMapper;
 import com.example.result.PageResult;
 import com.example.service.DishService;
+import com.example.service.MenuCacheInvalidationService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
@@ -21,9 +21,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DishServiceImpl implements DishService {
@@ -33,6 +34,9 @@ public class DishServiceImpl implements DishService {
     private DishFlavorsMapper dishFlavorsMapper;
     @Autowired
     private SetmealDishMapper setmealDishMapper;
+    @Autowired
+    private MenuCacheInvalidationService menuCacheInvalidationService;
+
     @Override
     public PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO) {
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
@@ -65,13 +69,21 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
+    @Transactional
     public void updateStatus(Long id, Integer status) {
+        Dish originalDish = dishMapper.getById(id);
         Dish dish = Dish.builder().id(id).status(status).build();
         dishMapper.update(dish);
+        menuCacheInvalidationService.invalidateDishCategoriesAfterCommit(
+                buildCategoryIds(originalDish == null ? null : originalDish.getCategoryId()),
+                "dish-status:" + id
+        );
     }
 
     @Override
+    @Transactional
     public void update(DishModifyDTO dishModifyDTO) {
+        Dish originalDish = dishMapper.getById(dishModifyDTO.getId());
         Dish dish = new Dish();
         BeanUtils.copyProperties(dishModifyDTO, dish);
         dishMapper.update(dish);
@@ -85,16 +97,25 @@ public class DishServiceImpl implements DishService {
             });
             dishFlavorsMapper.insertBatch(flavors);
         }
+        menuCacheInvalidationService.invalidateDishCategoriesAfterCommit(
+                buildCategoryIds(
+                        originalDish == null ? null : originalDish.getCategoryId(),
+                        dishModifyDTO.getCategoryId()
+                ),
+                "dish-update:" + dishModifyDTO.getId()
+        );
     }
 
     @Override
     @Transactional
     public void deleteByIds(List<Long> ids) {
+        Set<Long> categoryIds = new LinkedHashSet<>();
         for (Long id : ids) {
             Dish dish = dishMapper.getById(id);
             if (dish.getStatus() == StatusConstant.ENABLE) {
                 throw new BaseException(MessageConstant.DISH_ON_SALE);
             }
+            categoryIds.add(dish.getCategoryId());
         }
 
         List<Long> setmealIds = setmealDishMapper.getSetmealByDishIds(ids);
@@ -105,6 +126,7 @@ public class DishServiceImpl implements DishService {
 
         dishMapper.deleteById(ids);
         dishFlavorsMapper.deleteByDishId(ids);
+        menuCacheInvalidationService.invalidateDishCategoriesAfterCommit(categoryIds, "dish-delete");
     }
 
     @Transactional
@@ -122,6 +144,10 @@ public class DishServiceImpl implements DishService {
             });
             dishFlavorsMapper.insertBatch(flavors);
         }
+        menuCacheInvalidationService.invalidateDishCategoriesAfterCommit(
+                buildCategoryIds(dishModifyDTO.getCategoryId()),
+                "dish-add:" + DishId
+        );
     }
 
     @Override
@@ -138,5 +164,19 @@ public class DishServiceImpl implements DishService {
             dishVOList.add(dishVO);
         }
         return dishVOList;
+    }
+
+    private Set<Long> buildCategoryIds(Long... categoryIds) {
+        Set<Long> result = new LinkedHashSet<>();
+        if (categoryIds == null) {
+            return result;
+        }
+
+        for (Long categoryId : categoryIds) {
+            if (categoryId != null) {
+                result.add(categoryId);
+            }
+        }
+        return result;
     }
 }

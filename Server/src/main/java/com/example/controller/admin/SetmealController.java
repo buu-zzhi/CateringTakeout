@@ -6,9 +6,7 @@ import com.example.VO.SetmealVO;
 import com.example.result.PageResult;
 import com.example.result.Result;
 import com.example.service.SetmealService;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +24,6 @@ public class SetmealController {
     }
 
     @PutMapping
-    @CacheEvict(cacheNames = "SetmealCache", allEntries = true)
     public Result update(@RequestBody SetmealDTO setmealDTO) {
         setmealService.update(setmealDTO);
         return Result.success();
@@ -39,21 +36,18 @@ public class SetmealController {
     }
 
     @PostMapping
-    @CacheEvict(cacheNames = "SetmealCache", key = "#setmealDTO.categoryId")
     public Result save(@RequestBody SetmealDTO setmealDTO) {
         setmealService.saveWithDish(setmealDTO);
         return Result.success();
     }
 
     @PostMapping("/status/{status}")
-    @CacheEvict(cacheNames = "SetmealCache", allEntries = true)
     public Result startOrStop(@PathVariable Integer status, Long id) {
         setmealService.startOrStop(status, id);
         return Result.success();
     }
 
     @DeleteMapping
-    @CacheEvict(cacheNames = "SetmealCache", allEntries = true)
     public Result delete(@RequestParam List<Long> ids) {
         setmealService.deleteBatch(ids);
         return Result.success();

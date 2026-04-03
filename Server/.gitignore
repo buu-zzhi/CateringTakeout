@@ -35,3 +35,7 @@ build/
 # 忽略本地密钥配置文件
 application-secret.yml
 **/application-secret.yml
+
+# 忽略服务配置文件
+deploy/docker-compose.yml
+deploy/.env

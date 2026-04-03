@@ -1,3 +1,5 @@
+server:
+  port: 7070
 spring:
   config:
     import: optional:classpath:application-secret.yml
@@ -14,17 +16,19 @@ spring:
       max-file-size: 100MB
   data:
     redis:
-      host: localhost
+      host: 127.0.0.1
       port: 6379
       database: 1
+      password: 123456
 
 rocketmq:
-  name-server: ${ROCKETMQ_NAMESERVER:127.0.0.1:9876}
+  name-server: 127.0.0.1:9876
   producer:
     group: order-create-producer-group
 
 app:
   mq:
+    enabled: true
     order-create-topic: order-create-topic
     order-create-consumer-group: order-create-consumer-group
     # 业务消费失败后的最大重试次数（达到后会投递到死信主题）
@@ -34,12 +38,27 @@ app:
     # 应用级死信主题（用于持久记录最终失败消息）
     order-create-dead-letter-topic: order-create-dead-letter-topic
     order-create-dead-letter-consumer-group: order-create-dead-letter-consumer-group
+  cache:
+    consistency:
+      delay-delete: 500ms
+      dish-ttl: 30m
+      setmeal-ttl: 30m
+      canal:
+        enabled: false
+        host: 127.0.0.1
+        port: 11111
+        destination: example
+        username:
+        password:
+        filter: sky_take_out.dish,sky_take_out.dish_flavor,sky_take_out.setmeal,sky_take_out.setmeal_dish
+        batch-size: 100
+        poll-interval: 1s
 
 
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 sky:
   jwt:

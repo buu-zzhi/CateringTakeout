@@ -50,7 +50,7 @@ public class OrdersServiceImpl implements OrdersService {
     private ShoppingCartMapper shoppingCartMapper;
     @Autowired
     private AddressBookService addressBookService;
-    @Autowired
+    @Autowired(required = false)
     private OrderCreateProducer orderCreateProducer;
     @Autowired
     private WebSocketServer webSocketServer;
@@ -94,6 +94,22 @@ public class OrdersServiceImpl implements OrdersService {
         List<ShoppingCart> shoppingCartList = validateAndGetShoppingCart(userId, ordersSubmitDTO.getAddressBookId());
 
         String orderNumber = generateOrderNumber();
+        if (orderCreateProducer == null) {
+            log.warn("RocketMQ 未启用，异步下单降级为同步处理, orderNumber={}", orderNumber);
+            createOrderFromMessage(ordersSubmitDTO, userId, orderNumber, shoppingCartList);
+            Orders orders = ordersMapper.getByNumber(orderNumber);
+
+            return OrdersSubmitVO.builder()
+                    .id(orders.getId())
+                    .orderTime(orders.getOrderTime())
+                    .orderNumber(orders.getNumber())
+                    .orderAmount(orders.getAmount())
+                    .accepted(Boolean.TRUE)
+                    .submitStatus("SUCCESS")
+                    .message("RocketMQ未启用，订单已同步创建")
+                    .build();
+        }
+
         OrderCreateMessage message = OrderCreateMessage.builder()
                 .userId(userId)
                 .orderNumber(orderNumber)

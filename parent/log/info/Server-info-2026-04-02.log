@@ -1,0 +1,283 @@
+2026-04-02 16:23:58.007 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 16:23:58.053 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 22700 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 16:23:58.054 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 16:23:58.880 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 16:23:58.883 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 16:23:58.924 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2026-04-02 16:23:59.917 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-02 16:23:59.936 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-02 16:23:59.937 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 16:23:59.938 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 16:24:00.052 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 16:24:00.053 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1961 ms
+2026-04-02 16:24:01.149 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 16:24:01.492 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_1
+2026-04-02 16:24:01.501 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateDeadLetterConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_2
+2026-04-02 16:24:02.288 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-02 16:24:02.302 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-02 16:24:02.408 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-04-02 16:24:02.420 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - container destroyed, DefaultRocketMQListenerContainer{consumerGroup='order-create-dead-letter-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-dead-letter-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 16:24:05.407 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - container destroyed, DefaultRocketMQListenerContainer{consumerGroup='order-create-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 16:24:07.299 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-02 17:50:57.603 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 17:50:57.654 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 26184 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 17:50:57.655 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 17:50:58.498 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 17:50:58.502 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 17:50:58.546 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2026-04-02 17:50:59.508 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 17:50:59.525 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 17:50:59.527 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 17:50:59.527 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 17:50:59.643 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 17:50:59.644 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1942 ms
+2026-04-02 17:51:01.273 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 17:51:01.676 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 17:51:01.688 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 17:51:01.695 [main] INFO  com.example.ServerApplication - Started ServerApplication in 4.858 seconds (process running for 6.11)
+2026-04-02 20:35:32.661 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 20:35:32.670 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 20:41:27.725 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 20:41:27.763 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 28372 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 20:41:27.764 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 20:41:28.518 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 20:41:28.520 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 20:41:28.562 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-04-02 20:41:29.403 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 20:41:29.418 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:41:29.419 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 20:41:29.420 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 20:41:29.539 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 20:41:29.539 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1740 ms
+2026-04-02 20:41:31.669 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 20:41:32.138 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:41:32.152 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 20:41:32.160 [main] INFO  com.example.ServerApplication - Started ServerApplication in 5.007 seconds (process running for 5.978)
+2026-04-02 20:49:56.707 [http-nio-7070-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 20:49:56.720 [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 20:49:56.721 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 20:49:56.723 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-02 20:49:56.957 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 20:49:57.795 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@537cb73a
+2026-04-02 20:49:57.797 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 20:49:58.044 [http-nio-7070-exec-1] INFO  c.e.c.admin.EmployeeController - EmployeeLoginVO(id=1, userName=admin, name=管理员, token=eyJhbGciOiJIUzI1NiJ9.eyJlbXBJZCI6MSwiZXhwIjoxNzc1MTc3Mzk3fQ.Z4G1QX7bjLrjYQoBE3HgB2GGV2Y-f6u68ZdZam-pymM)
+2026-04-02 20:49:58.259 [http-nio-7070-exec-4] INFO  c.e.c.admin.WorkSpaceController - begin:2026-04-02T00:00
+2026-04-02 20:54:39.715 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 20:54:39.723 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 20:54:42.339 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 20:54:42.345 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 20:54:45.994 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 20:54:46.039 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 27028 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 20:54:46.040 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 20:54:46.856 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 20:54:46.858 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 20:54:46.901 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-04-02 20:54:47.788 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 20:54:47.803 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:54:47.805 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 20:54:47.805 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 20:54:47.934 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 20:54:47.935 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1853 ms
+2026-04-02 20:54:49.426 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 20:54:49.841 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:54:49.854 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 20:54:49.863 [main] INFO  com.example.ServerApplication - Started ServerApplication in 4.515 seconds (process running for 5.649)
+2026-04-02 20:55:11.459 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 20:55:11.465 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 20:55:19.016 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 20:55:19.067 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 28008 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 20:55:19.068 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 20:55:19.834 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 20:55:19.837 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 20:55:19.878 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-04-02 20:55:20.642 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 20:55:20.656 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:55:20.657 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 20:55:20.657 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 20:55:20.762 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 20:55:20.762 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1650 ms
+2026-04-02 20:55:22.205 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 20:55:22.545 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:55:22.555 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 20:55:22.563 [main] INFO  com.example.ServerApplication - Started ServerApplication in 4.152 seconds (process running for 5.205)
+2026-04-02 20:55:32.481 [http-nio-7070-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 20:55:32.481 [http-nio-7070-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 20:55:32.483 [http-nio-7070-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-02 20:55:33.187 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 20:55:33.635 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@295a980a
+2026-04-02 20:55:33.637 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 20:58:17.597 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 20:58:17.603 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 20:58:19.366 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 20:58:19.373 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 20:58:25.556 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 20:58:25.596 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 10604 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 20:58:25.597 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 20:58:26.405 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 20:58:26.406 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 20:58:26.445 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2026-04-02 20:58:27.260 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 20:58:27.275 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:58:27.277 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 20:58:27.278 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 20:58:27.395 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 20:58:27.395 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1763 ms
+2026-04-02 20:58:28.948 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 20:58:29.474 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 20:58:29.493 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 20:58:29.505 [main] INFO  com.example.ServerApplication - Started ServerApplication in 4.5 seconds (process running for 5.544)
+2026-04-02 20:58:45.671 [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 20:58:45.671 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 20:58:45.672 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-02 21:10:01.545 [http-nio-7070-exec-8] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 21:10:02.765 [http-nio-7070-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 21:10:03.114 [http-nio-7070-exec-7] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a6d3d2a
+2026-04-02 21:10:03.116 [http-nio-7070-exec-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 21:49:08.939 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 21:49:08.948 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 21:49:11.965 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 21:49:11.972 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 21:49:31.567 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 21:49:31.619 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 33632 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 21:49:31.620 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 21:49:32.498 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 21:49:32.500 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 21:49:32.542 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-04-02 21:49:33.523 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 21:49:33.539 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 21:49:33.540 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 21:49:33.540 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 21:49:33.703 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 21:49:33.704 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2041 ms
+2026-04-02 21:49:35.523 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 21:49:35.959 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 21:49:35.971 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 21:49:35.982 [main] INFO  com.example.ServerApplication - Started ServerApplication in 5.054 seconds (process running for 21.709)
+2026-04-02 21:49:39.919 [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 21:49:39.919 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 21:49:39.921 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-02 21:49:40.122 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 21:49:40.473 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66cda144
+2026-04-02 21:49:40.474 [http-nio-7070-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 21:50:32.840 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 21:50:32.846 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 21:50:35.718 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 21:50:35.726 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 21:50:41.127 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 21:50:41.177 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 31000 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 21:50:41.178 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 21:50:42.139 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 21:50:42.143 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 21:50:42.192 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2026-04-02 21:50:43.353 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 21:50:43.377 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 21:50:43.379 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 21:50:43.380 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 21:50:43.535 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 21:50:43.536 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2307 ms
+2026-04-02 21:50:45.773 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 21:50:46.279 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 21:50:46.294 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 21:50:46.304 [main] INFO  com.example.ServerApplication - Started ServerApplication in 5.83 seconds (process running for 7.256)
+2026-04-02 21:50:46.421 [http-nio-7070-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 21:50:46.422 [http-nio-7070-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 21:50:46.422 [http-nio-7070-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-04-02 21:50:46.590 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 21:50:47.245 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2072622a
+2026-04-02 21:50:47.247 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 21:51:26.984 [http-nio-7070-exec-4] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 21:52:02.969 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 21:52:02.976 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 21:52:05.919 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 21:52:05.927 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 21:52:12.418 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 21:52:12.462 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 30744 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 21:52:12.463 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 21:52:13.275 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 21:52:13.277 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 21:52:13.314 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2026-04-02 21:52:14.237 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 21:52:14.253 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 21:52:14.255 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 21:52:14.255 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 21:52:14.376 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 21:52:14.376 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1871 ms
+2026-04-02 21:52:15.273 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-04-02 21:52:15.284 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-04-02 22:02:11.095 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 22:02:11.159 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 7272 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 22:02:11.161 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 22:02:12.154 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 22:02:12.158 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 22:02:12.203 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2026-04-02 22:02:13.276 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 22:02:13.294 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 22:02:13.296 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 22:02:13.296 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 22:02:13.414 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 22:02:13.416 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2194 ms
+2026-04-02 22:02:14.557 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 22:02:14.846 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_1
+2026-04-02 22:02:14.854 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateDeadLetterConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_2
+2026-04-02 22:02:15.634 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 22:02:15.647 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 22:02:15.878 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - running container: DefaultRocketMQListenerContainer{consumerGroup='order-create-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 22:02:15.913 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - running container: DefaultRocketMQListenerContainer{consumerGroup='order-create-dead-letter-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-dead-letter-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 22:02:15.927 [main] INFO  com.example.ServerApplication - Started ServerApplication in 5.48 seconds (process running for 6.738)
+2026-04-02 22:02:27.156 [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 22:02:27.157 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 22:02:27.158 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-02 22:02:30.335 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 22:02:30.951 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ff2121a
+2026-04-02 22:02:30.954 [http-nio-7070-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 22:03:02.237 [http-nio-7070-exec-1] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 22:03:19.392 [http-nio-7070-exec-5] INFO  c.e.mq.producer.OrderCreateProducer - 订单创建消息发送成功, orderNumber=17751385947563555, userId=4, retryCount=0
+2026-04-02 22:03:40.754 [ConsumeMessageThread_order-create-consumer-group_1] INFO  c.e.mq.consumer.OrderCreateConsumer - 收到订单创建消息, orderNumber=17751385947563555, userId=4, retryCount=0
+2026-04-02 23:00:10.312 [http-nio-7070-exec-9] INFO  c.e.s.i.MenuCacheInvalidationServiceImpl - 菜单缓存删除完成, reason=dish-update:57, delayed=false, dishCategoryIds=[19], setmealCategoryIds=[]
+2026-04-02 23:00:10.832 [cache-invalidation-1] INFO  c.e.s.i.MenuCacheInvalidationServiceImpl - 菜单缓存删除完成, reason=dish-update:57, delayed=true, dishCategoryIds=[19], setmealCategoryIds=[]
+2026-04-02 23:08:43.306 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-02 23:08:43.320 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-02 23:08:43.365 [SpringApplicationShutdownHook] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - container destroyed, DefaultRocketMQListenerContainer{consumerGroup='order-create-dead-letter-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-dead-letter-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 23:08:43.365 [SpringApplicationShutdownHook] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - container destroyed, DefaultRocketMQListenerContainer{consumerGroup='order-create-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 23:08:43.403 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-02 23:08:43.413 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-02 23:08:57.849 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-04-02 23:08:57.940 [main] INFO  com.example.ServerApplication - Starting ServerApplication using Java 22.0.2 with PID 32328 (D:\code\java_project\CangQiong Takeout\CangqiongTakeout\Server\target\classes started by liang in D:\code\java_project\CangQiong Takeout\CangqiongTakeout\parent)
+2026-04-02 23:08:57.942 [main] INFO  com.example.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-02 23:08:59.228 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-04-02 23:08:59.234 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-04-02 23:08:59.316 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 0 Redis repository interfaces.
+2026-04-02 23:09:00.852 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7070 (http)
+2026-04-02 23:09:00.873 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7070"]
+2026-04-02 23:09:00.875 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-02 23:09:00.876 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-04-02 23:09:01.014 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-02 23:09:01.014 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3003 ms
+2026-04-02 23:09:02.844 [main] INFO  o.a.r.s.a.RocketMQAutoConfiguration - a producer (order-create-producer-group) init on namesrv 127.0.0.1:9876
+2026-04-02 23:09:03.283 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_1
+2026-04-02 23:09:03.293 [main] INFO  o.a.r.s.s.RocketMQMessageListenerContainerRegistrar - Register the listener to container, listenerBeanName:orderCreateDeadLetterConsumer, containerBeanName:org.apache.rocketmq.spring.support.DefaultRocketMQListenerContainer_2
+2026-04-02 23:09:04.462 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7070"]
+2026-04-02 23:09:04.482 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7070 (http) with context path '/'
+2026-04-02 23:09:04.772 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - running container: DefaultRocketMQListenerContainer{consumerGroup='order-create-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 23:09:04.814 [main] INFO  o.a.r.s.s.DefaultRocketMQListenerContainer - running container: DefaultRocketMQListenerContainer{consumerGroup='order-create-dead-letter-consumer-group', namespace='', namespaceV2='', nameServer='127.0.0.1:9876', topic='order-create-dead-letter-topic', consumeMode=CONCURRENTLY, selectorType=TAG, selectorExpression='*', messageModel=CLUSTERING', tlsEnable=false, instanceName=DEFAULT}
+2026-04-02 23:09:04.827 [main] INFO  com.example.ServerApplication - Started ServerApplication in 8.064 seconds (process running for 10.035)
+2026-04-02 23:09:05.384 [http-nio-7070-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-02 23:09:05.384 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-02 23:09:05.385 [http-nio-7070-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-02 23:09:18.609 [http-nio-7070-exec-4] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 23:09:18.609 [http-nio-7070-exec-3] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [ECS[visit_times]=2;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-04-02 23:09:18.659 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-02 23:09:19.478 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5a10eb2e
+2026-04-02 23:09:19.481 [http-nio-7070-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-02 23:09:26.597 [http-nio-7070-exec-5] INFO  c.e.s.i.MenuCacheInvalidationServiceImpl - 菜单缓存删除完成, reason=dish-update:63, delayed=false, dishCategoryIds=[17], setmealCategoryIds=[]
+2026-04-02 23:09:27.106 [cache-invalidation-1] INFO  c.e.s.i.MenuCacheInvalidationServiceImpl - 菜单缓存删除完成, reason=dish-update:63, delayed=true, dishCategoryIds=[17], setmealCategoryIds=[]

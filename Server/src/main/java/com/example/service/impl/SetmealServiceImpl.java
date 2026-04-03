@@ -14,6 +14,7 @@ import com.example.mapper.DishMapper;
 import com.example.mapper.SetmealDishMapper;
 import com.example.mapper.SetmealMapper;
 import com.example.result.PageResult;
+import com.example.service.MenuCacheInvalidationService;
 import com.example.service.SetmealService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -22,7 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class SetmealServiceImpl implements SetmealService {
@@ -32,6 +35,8 @@ public class SetmealServiceImpl implements SetmealService {
     private SetmealDishMapper setmealDishMapper;
     @Autowired
     private DishMapper dishMapper;
+    @Autowired
+    private MenuCacheInvalidationService menuCacheInvalidationService;
 
     @Override
     public List<Setmeal> list(Setmeal setmeal) {
@@ -54,6 +59,7 @@ public class SetmealServiceImpl implements SetmealService {
     @Transactional
     @Override
     public void update(SetmealDTO setmealDTO) {
+        Setmeal originalSetmeal = setmealMapper.getById(setmealDTO.getId());
         Setmeal setmeal = new Setmeal();
         BeanUtils.copyProperties(setmealDTO, setmeal);
 
@@ -66,6 +72,13 @@ public class SetmealServiceImpl implements SetmealService {
             setmealDish.setSetmealId(setmealId);
         });
         setmealDishMapper.insertBatch(setmealDishes);
+        menuCacheInvalidationService.invalidateSetmealCategoriesAfterCommit(
+                buildCategoryIds(
+                        originalSetmeal == null ? null : originalSetmeal.getCategoryId(),
+                        setmealDTO.getCategoryId()
+                ),
+                "setmeal-update:" + setmealId
+        );
     }
 
     @Override
@@ -97,10 +110,16 @@ public class SetmealServiceImpl implements SetmealService {
 
         //保存套餐和菜品的关联关系
         setmealDishMapper.insertBatch(setmealDishes);
+        menuCacheInvalidationService.invalidateSetmealCategoriesAfterCommit(
+                buildCategoryIds(setmealDTO.getCategoryId()),
+                "setmeal-add:" + setmealId
+        );
     }
 
+    @Transactional
     @Override
     public void startOrStop(Integer status, Long id) {
+        Setmeal originalSetmeal = setmealMapper.getById(id);
         if (status == StatusConstant.ENABLE) {
             //select a.* from dish a left join setmeal_dish b on a.id = b.dish_id where b.setmeal_id = ?
             List<Dish> dishList = dishMapper.getBySetmealId(id);
@@ -118,17 +137,23 @@ public class SetmealServiceImpl implements SetmealService {
                 .status(status)
                 .build();
         setmealMapper.update(setmeal);
+        menuCacheInvalidationService.invalidateSetmealCategoriesAfterCommit(
+                buildCategoryIds(originalSetmeal == null ? null : originalSetmeal.getCategoryId()),
+                "setmeal-status:" + id
+        );
     }
 
     @Transactional
     @Override
     public void deleteBatch(List<Long> ids) {
+        Set<Long> categoryIds = new LinkedHashSet<>();
         ids.forEach(id -> {
             Setmeal setmeal = setmealMapper.getById(id);
             if (StatusConstant.ENABLE == setmeal.getStatus()) {
                 //起售中的套餐不能删除
                 throw new BaseException(MessageConstant.SETMEAL_ON_SALE);
             }
+            categoryIds.add(setmeal.getCategoryId());
         });
         ids.forEach(setmealId -> {
             //删除套餐表中的数据
@@ -136,5 +161,20 @@ public class SetmealServiceImpl implements SetmealService {
             //删除套餐菜品关系表中的数据
             setmealDishMapper.deleteBySetmealId(setmealId);
         });
+        menuCacheInvalidationService.invalidateSetmealCategoriesAfterCommit(categoryIds, "setmeal-delete");
+    }
+
+    private Set<Long> buildCategoryIds(Long... categoryIds) {
+        Set<Long> result = new LinkedHashSet<>();
+        if (categoryIds == null) {
+            return result;
+        }
+
+        for (Long categoryId : categoryIds) {
+            if (categoryId != null) {
+                result.add(categoryId);
+            }
+        }
+        return result;
     }
 }

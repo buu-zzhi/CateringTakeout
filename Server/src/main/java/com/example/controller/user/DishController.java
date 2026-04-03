@@ -6,9 +6,7 @@ import com.example.entity.Dish;
 import com.example.result.Result;
 import com.example.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +18,6 @@ import java.util.List;
 public class DishController {
     @Autowired
     private DishService dishService;
-    @Autowired
-    private RedisTemplate redisTemplate;
 
     @GetMapping("/list")
     @Cacheable(cacheNames = "DishCache", key = "#categoryId")
